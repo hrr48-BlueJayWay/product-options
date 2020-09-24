@@ -1,1 +1,1 @@
-# productOptions
+# product-options

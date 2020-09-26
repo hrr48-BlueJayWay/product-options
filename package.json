@@ -1,0 +1,19 @@
+{
+  "name": "product-options",
+  "version": "1.0.0",
+  "description": "A dupe of Ikea's item details page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/server.js",
+    "nodemon": "nodemon ./server/server.js",
+    "postinstall": "node ./db/createFakeData.js"
+  },
+  "author": "August Dolan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "mongoose": "^5.10.6"
+  }
+}

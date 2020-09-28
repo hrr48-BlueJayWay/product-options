@@ -26,7 +26,7 @@ const reviewSchema = mongoose.Schema({
   liked: Boolean,
   inStock: Number,
   reviews: [reviewSchema],
-  id: Number
+  id: String
  })
 
  let Item = mongoose.model('Item', itemSchema);
@@ -116,8 +116,15 @@ Item.insertMany(createFakeData())
   .then(() => {
     Item.find({})
       .then((results) => {
+        console.log(results)
         console.log(`${results.length} pieces of data in the database`)
         mongoose.connection.close()
       })
+      .catch((err) => {
+        console.log(err);
+      })
+  })
+  .catch((err) => {
+    console.log(err);
   })
 

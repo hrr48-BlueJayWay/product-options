@@ -15,7 +15,7 @@ const reviewSchema = mongoose.Schema({
   iRecommendThisProduct: Boolean
  })
 
- const itemSchema = mongoose.Schema({
+const itemSchema = mongoose.Schema({
   price: {
     originalPrice: Number,
     salePrice: Number
@@ -25,13 +25,9 @@ const reviewSchema = mongoose.Schema({
   liked: Boolean,
   inStock: Number,
   reviews: [reviewSchema]
- })
+})
 
- let Item = mongoose.model('Item', itemSchema);
+let Item = mongoose.model('Item', itemSchema);
 
- Item.find({})
-  .then((results) => {
-    console.log(results)
-  })
 
-  module.exports = Item;
+module.exports = Item;

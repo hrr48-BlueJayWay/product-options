@@ -25,22 +25,16 @@ const reviewSchema = mongoose.Schema({
   sizes: [String],
   liked: Boolean,
   inStock: Number,
-  reviews: [reviewSchema]
+  reviews: [reviewSchema],
+  id: Number
  })
-
- const countSchema = mongoose.Schema({
-   _id: String,
-   itemNumber: Number,
- })
-
- let Count = mongoose.model('Count', countSchema)
 
  let Item = mongoose.model('Item', itemSchema);
 
 const createFakeData = () => {
 
   let dataArray = [];
-
+  let id = 0;
   for (let i = 0; i < 101; i++) {
     let reviews = [];
 
@@ -111,7 +105,8 @@ const createFakeData = () => {
       inStock = Math.floor(Math.random() * 15000)
     }
 
-    dataArray.push({ price, colors, sizes, liked, inStock, reviews });
+    dataArray.push({ price, colors, sizes, liked, inStock, reviews, id });
+    id++;
   }
 
   return dataArray;

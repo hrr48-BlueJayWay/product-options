@@ -26,7 +26,7 @@ const reviewSchema = mongoose.Schema({
   liked: Boolean,
   inStock: Number,
   reviews: [reviewSchema],
-  id: Number
+  id: String
  })
 
  let Item = mongoose.model('Item', itemSchema);

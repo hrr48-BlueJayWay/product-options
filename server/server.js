@@ -3,8 +3,10 @@ const db = require('../db/index.js')
 const app = express();
 const port = 3000;
 
-app.get('/products/find', (req, res) => {
-  db.find({})
+app.use(express.json())
+
+app.get('/products/find/:id', (req, res) => {
+  db.find({id: req.params.id})
     .then((results) => {
       res.send(results);
     })

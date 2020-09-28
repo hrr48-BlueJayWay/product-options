@@ -8,15 +8,27 @@ app.use(express.json())
 app.get('/products/:id', (req, res) => {
   console.log(req.params);
   let id = req.params.id;
-  console.log('this is id', id, typeof id)
+  console.log('this is id',id)
   db.findOne({ id })
     .then((results) => {
-      // console.log(typeof results[240].id)
+      console.log(results);
       res.send(results);
     })
     .catch((err) => {
       console.log(err);
       res.send(err);
+    })
+})
+
+app.patch('/products/:id', (req, res) => {
+  let id = req.params.id;
+
+  db.findOne({ id })
+    .then((item) => {
+      console.log(item.liked)
+      item.liked = !item.liked;
+      item.save();
+      res.send(item);
     })
 })
 

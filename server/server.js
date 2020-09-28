@@ -7,8 +7,14 @@ app.get('/', (req, res) => {
   db.find({})
     .then((results) => {
       res.send(results);
-
     })
+})
+
+app.delete('/', (req, res) => {
+  db.deleteMany({})
+  .then((results) => {
+    res.send(results);
+  })
 })
 
 app.listen(port, () => {

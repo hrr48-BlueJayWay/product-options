@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const createFakeData = require('./createFakeData.js');
 
 mongoose.connect('mongodb://localhost/mykea', { useNewUrlParser: true })
 
@@ -32,9 +31,7 @@ const reviewSchema = mongoose.Schema({
 
  Item.find({})
   .then((results) => {
-    if (results.length < 99) {
-      Item.insertMany(createFakeData())
-    }
+    console.log(results)
   })
 
   module.exports = Item;

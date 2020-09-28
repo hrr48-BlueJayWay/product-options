@@ -28,6 +28,13 @@ const reviewSchema = mongoose.Schema({
   reviews: [reviewSchema]
  })
 
+ const countSchema = mongoose.Schema({
+   _id: String,
+   itemNumber: Number,
+ })
+
+ let Count = mongoose.model('Count', countSchema)
+
  let Item = mongoose.model('Item', itemSchema);
 
 const createFakeData = () => {

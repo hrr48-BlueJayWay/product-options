@@ -17,6 +17,8 @@ const reviewSchema = mongoose.Schema({
  })
 
  const itemSchema = mongoose.Schema({
+  title: String,
+  description: String,
   price: {
     originalPrice: Number,
     salePrice: Number
@@ -35,6 +37,7 @@ const createFakeData = () => {
 
   let dataArray = [];
   let id = 0;
+
   for (let i = 0; i < 101; i++) {
     let reviews = [];
 
@@ -52,6 +55,10 @@ const createFakeData = () => {
 
       reviews.push({ overallRating, easeOfAssembly, valueForMoney, productQuality, appearance, worksAsExpected, createdAt, iRecommendThisProduct, header, body})
     }
+
+    let title = faker.lorem.word();
+
+    let description = faker.lorem.sentence();
 
     // Random prices w/ sales
     let samePrice = true;
@@ -105,7 +112,7 @@ const createFakeData = () => {
       inStock = Math.floor(Math.random() * 15000)
     }
 
-    dataArray.push({ price, colors, sizes, liked, inStock, reviews, id });
+    dataArray.push({ title, description, price, colors, sizes, liked, inStock, reviews, id });
     id++;
   }
 
@@ -120,11 +127,9 @@ Item.insertMany(createFakeData())
         console.log(`${results.length} pieces of data in the database`)
         mongoose.connection.close()
       })
-      .catch((err) => {
-        console.log(err);
-      })
   })
   .catch((err) => {
     console.log(err);
+    mongoose.connection.close()
   })
 

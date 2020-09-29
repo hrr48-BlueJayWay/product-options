@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json())
+app.use(express.static('./client/dist'))
 
 app.get('/products/:id', (req, res) => {
   console.log(req.params);

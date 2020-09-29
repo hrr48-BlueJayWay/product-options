@@ -1,3 +1,5 @@
-test('Whether app.get on /products/find returns the correct product based on id', () => {
 
+
+test('no functional tests present at this time', () => {
+  expect(true).toBeTruthy;
 })

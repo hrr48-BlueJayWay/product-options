@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const HelloWorld = () => {
+import data from './data/exampleData.js';
+console.log(data);
+const App = () => {
+  console.log(data);
   return (
-    <h1>YEEHAW</h1>
+    <div>
+      <h1>Bergpalm</h1>
+      <p>This is an item description about the pillows etc.</p>
+    </div>
+
   )
 };
 
-ReactDOM.render(<HelloWorld />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));

@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import data from './data/exampleData.js';
-console.log(data);
+import ProductOverview from './components/ProductOverview.jsx';
+
+import exampleData from './data/exampleData.js';
+
 const App = () => {
-  console.log(data);
+console.log(exampleData);
+const [data, setData] = useState(exampleData)
+
   return (
     <div>
-      <h1>Bergpalm</h1>
-      <p>This is an item description about the pillows etc.</p>
+      <ProductOverview data={data} />
     </div>
 
   )

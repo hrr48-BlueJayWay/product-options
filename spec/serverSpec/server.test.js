@@ -19,7 +19,6 @@ describe('Testing Endpoints', () => {
         expect(results.body.id).toBe('45');
       })
       })
-
 })
 
 // test('destructuring works on require', () => {

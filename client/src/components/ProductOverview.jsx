@@ -1,17 +1,20 @@
 import React from 'react';
 
-const ProductOverview = (props) => (
+const ProductOverview = (props) => {
+  const { data } = props;
+  let isOnSale = data.price.salePrice < data.price.originalPrice
+
   <div>
     <div id="title">
-      <h1>{props.data.title}</h1>
-      <p>{props.data.description}</p>
+      <h1>{data.title}</h1>
+      <p>{data.description}</p>
     </div>
     <div id="price">
-      <div>{props.data.price.originalPrice}</div>
-      {props.data.price.salePrice < props.data.price.originalPrice && <div>{props.data.price.salePrice}</div>}
+      <div>{data.price.originalPrice}</div>
+      {isOnSale && <div>{data.price.salePrice}</div>}
     </div>
-    <div id="reviews-module">stars & # of reviews go here</div>
+    <div id="reviews-module">stars svg and review num here</div>
   </div>
-);
+};
 
 export default ProductOverview;

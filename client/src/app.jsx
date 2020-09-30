@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import ProductOverview from './components/ProductOverview.jsx';
 
-const HelloWorld = () => {
+import exampleData from './data/exampleData.js';
+
+const App = () => {
+console.log(exampleData);
+const [data, setData] = useState(exampleData)
+
   return (
-    <h1>YEEHAW</h1>
+    <div>
+      <ProductOverview data={data} />
+    </div>
+
   )
 };
 
-ReactDOM.render(<HelloWorld />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById("app"));

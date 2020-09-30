@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import ProductOverview from './components/ProductOverview.jsx';
-
 import exampleData from './data/exampleData.js';
+import GlobalStyle from './globalStyle/createGlobalStyle.jsx'
+
 
 const App = () => {
-console.log(exampleData);
+
 const [data, setData] = useState(exampleData)
 
   return (
     <div>
+      <GlobalStyle />
       <ProductOverview data={data} />
     </div>
-
   )
 };
 

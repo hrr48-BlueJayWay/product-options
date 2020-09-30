@@ -13,7 +13,6 @@ const [data, setData] = useState(exampleData)
   return (
     <div>
       <GlobalStyle />
-      <h1>test</h1>
       <ProductOverview data={data} />
     </div>
   )

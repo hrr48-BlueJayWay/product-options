@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
   html {
-    font-size: 100%;
+    font: 100%;
   }
   body {
     width: 33%;

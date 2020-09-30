@@ -6,6 +6,7 @@ import exampleData from './data/exampleData.js';
 import GlobalStyle from './globalStyle/createGlobalStyle.jsx'
 
 
+
 const App = () => {
 
 const [data, setData] = useState(exampleData)

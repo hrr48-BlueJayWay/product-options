@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const detailsTheme = {
-  main: "magenta",
-}
-
 const GridParent = styled.div`
   display: grid;
   grid-template-areas:
@@ -86,8 +82,6 @@ const Star = <Icon viewBox="0 -10 511.99143 511">
 const ProductOverview = (props) => {
   const { data } = props;
   console.log(data.reviews);
-
-
 
   let reviewsAverages = ((reviews) => {
     let reviewsAverages = {

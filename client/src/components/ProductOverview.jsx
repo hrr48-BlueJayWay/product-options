@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const detailsTheme = {
-  main: "magenta",
-}
-
 const GridParent = styled.div`
   display: grid;
   grid-template-areas:
@@ -49,6 +45,7 @@ const Reviews = styled.div`
 
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -87,8 +84,6 @@ const ProductOverview = (props) => {
   const { data } = props;
   console.log(data.reviews);
 
-
-
   let reviewsAverages = ((reviews) => {
     let reviewsAverages = {
       appearance: 0,
@@ -122,7 +117,7 @@ const ProductOverview = (props) => {
   return (
   <GridParent>
     {isOnSale && <NewPrice>New Lower Price</NewPrice>}
-    <Main theme={detailsTheme}>
+    <Main>
       <h1>{data.title.toUpperCase()}</h1>
     </Main>
     <Description>
@@ -132,7 +127,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <Reviews>{roundedUpStars} ({data.reviews.length})</Reviews>
+    <Reviews onClick={() => {props.setSidebarClicked(true)}}>{roundedUpStars} ({data.reviews.length})</Reviews>
   </GridParent>
   );
 };

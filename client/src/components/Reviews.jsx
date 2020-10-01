@@ -2,18 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 
-
-const Main = styled.div`
+const FlexContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 20%;
+  padding-left: 10%;
 `;
+
+const Title = styled.h1`
+grid-area: main;
+font-weight: 700;
+margin: 0.5rem 0;
+flex: 0 0 100%;
+font-size: 1.5rem;
+`;
+
 const Reviews = (props) => {
   const { data } = props;
 
   return (
-    <div>
-      <h1>HELLO MY DELICIOUS WORLD</h1>
+    <FlexContainer>
+      <Title>Reviews</Title>
       <ReviewsOverview data={data} />
-    </div>
+    </FlexContainer>
   );
 };
 

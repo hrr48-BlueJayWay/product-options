@@ -25,7 +25,7 @@ const Pricing = styled.div`
   margin-top: 1.75rem;
 `;
 
-const Main = styled.div`
+const Title = styled.h1`
   grid-area: main;
   font-weight: 700;
   margin: 0.5rem 0;
@@ -73,9 +73,7 @@ const ProductOverview = (props) => {
   return (
   <GridParent>
     {isOnSale && <NewPrice>New Lower Price</NewPrice>}
-    <Main>
-      <h1>{data.title.toUpperCase()}</h1>
-    </Main>
+    <Title>{data.title.toUpperCase()}</Title>
     <Description>
       <p>{data.description}{data.colors[0] && `, ${data.colors[0]}`}{data.sizes[0] && `, ${data.sizes[0]}`}</p>
     </Description>

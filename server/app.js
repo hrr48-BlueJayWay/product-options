@@ -3,7 +3,7 @@ const app = express();
 const db = require('../db/')
 
 app.use(express.json())
-// app.use(express.static('./client/dist'))
+app.use(express.static('./client/dist'))
 
 app.get('/products/:id', (req, res) => {
   console.log(req.params);

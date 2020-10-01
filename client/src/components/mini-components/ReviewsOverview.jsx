@@ -22,7 +22,7 @@ grid-area: reviews;
 margin: 0.5rem 0;
 font-size: 0.75rem;
 color: #484848;
-${(props) => props.clickable && hoverCSS}
+${(props) => props.linkedToReviews && hoverCSS}
 `;
 
 const ReviewsOverview = (props) => {
@@ -57,7 +57,7 @@ const ReviewsOverview = (props) => {
   }
 
   return (
-    <Main clickable={true} onClick={props.handleClick}>{roundedUpStars} ({data.reviews.length})</Main>
+    <Main linkedToReviews={props.linkedToReviews} onClick={props.handleClick}>{roundedUpStars} ({data.reviews.length})</Main>
   );
 }
 

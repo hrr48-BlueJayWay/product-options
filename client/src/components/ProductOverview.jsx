@@ -81,6 +81,12 @@ const Star = <Icon viewBox="0 -10 511.99143 511">
 
 
 const ProductOverview = (props) => {
+
+  const handleClick = () => {
+    props.setSidebarClicked(true);
+    props.setSidebarView('reviews');
+  }
+
   const { data } = props;
   console.log(data.reviews);
 
@@ -127,7 +133,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <Reviews onClick={() => {props.setSidebarClicked(true)}}>{roundedUpStars} ({data.reviews.length})</Reviews>
+    <Reviews onClick={handleClick}>{roundedUpStars} ({data.reviews.length})</Reviews>
   </GridParent>
   );
 };

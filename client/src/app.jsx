@@ -24,13 +24,14 @@ const App = () => {
 
 const [data, setData] = useState(exampleData)
 const [sidebarClicked, setSidebarClicked] = useState(false);
+const [sidebarView, setSidebarView] = useState();
 
   return (
     <Module>
       {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
-      <Sidebar sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked}/>
+      <Sidebar data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarView={sidebarView}/>
       <GlobalStyle />
-      <ProductOverview data={data} setSidebarClicked={setSidebarClicked}/>
+      <ProductOverview data={data} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}/>
     </Module>
   )
 };

@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
+import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
+
 
 const FlexContainer = styled.div`
   display: flex;
@@ -55,9 +57,11 @@ const Rating = styled.div`
 `;
 
 const Reviews = (props) => {
-  const { reviewsAverages } = props.data;
+  const { reviews, reviewsAverages } = props.data;
   console.log(reviewsAverages);
   return (
+    <div>
+
     <FlexContainer>
       <Title>Reviews</Title>
       <Averages>
@@ -95,6 +99,10 @@ const Reviews = (props) => {
         </ScoreAverage>
       </Averages>
     </FlexContainer>
+    <FlexContainer>
+      {reviews.map((review) => {return <ReviewEntry review={review} />})}
+    </FlexContainer>
+    </div>
   );
 };
 

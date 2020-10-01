@@ -18,7 +18,6 @@ const Star = <Icon viewBox="0 -10 511.99143 511">
 </Icon>;
 
 const Main = styled.div`
-grid-area: reviews;
 margin: 0.5rem 0;
 font-size: 0.75rem;
 color: #484848;
@@ -26,9 +25,7 @@ ${(props) => props.linkedToReviews && hoverCSS}
 `;
 
 const ReviewsOverview = (props) => {
-  console.log(props);
-  const { data } = props;
-  console.log(props.averages);
+
   let roundedUpStars = [];
   for (let i = 0; i < props.averages.overallRating; i++) {
     roundedUpStars.push(Star);

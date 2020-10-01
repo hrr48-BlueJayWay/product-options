@@ -56,6 +56,10 @@ const MoneySpans = styled.span`
   vertical-align: top;
 `;
 
+const ReviewsContainer = styled.div`
+  grid-area: reviews;
+`;
+
 const ProductOverview = (props) => {
 
   const handleClick = () => {
@@ -80,7 +84,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <ReviewsOverview handleClick={handleClick} averages={data.reviewsAverages} linkedToReviews={true} />
+    <ReviewsContainer><ReviewsOverview handleClick={handleClick} averages={data.reviewsAverages} linkedToReviews={true} /></ReviewsContainer>
   </GridParent>
   );
 };

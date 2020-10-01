@@ -45,6 +45,7 @@ const Reviews = styled.div`
 
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
@@ -116,7 +117,7 @@ const ProductOverview = (props) => {
   return (
   <GridParent>
     {isOnSale && <NewPrice>New Lower Price</NewPrice>}
-    <Main theme={detailsTheme}>
+    <Main>
       <h1>{data.title.toUpperCase()}</h1>
     </Main>
     <Description>
@@ -126,7 +127,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <Reviews>{roundedUpStars} ({data.reviews.length})</Reviews>
+    <Reviews onClick={() => {props.setSidebarClicked(true)}}>{roundedUpStars} ({data.reviews.length})</Reviews>
   </GridParent>
   );
 };

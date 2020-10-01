@@ -53,8 +53,7 @@ const GlobalStyle = createGlobalStyle`
     font: 100%;
   }
   body {
-    width: 33%;
-    align-self: end;
+    overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
     font-size: 1rem;
     box-sizing: border-box;

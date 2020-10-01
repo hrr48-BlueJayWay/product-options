@@ -64,7 +64,6 @@ const ProductOverview = (props) => {
   }
 
   const { data } = props;
-  console.log(data.reviews);
 
   let isOnSale = data.price.salePrice < data.price.originalPrice
   const dollar = <MoneySpans>$</MoneySpans>
@@ -81,7 +80,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <ReviewsOverview handleClick={handleClick} data={data} linkedToReviews={true} />
+    <ReviewsOverview handleClick={handleClick} averages={data.reviewsAverages} linkedToReviews={true} />
   </GridParent>
   );
 };

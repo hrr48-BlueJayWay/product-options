@@ -28,36 +28,14 @@ ${(props) => props.linkedToReviews && hoverCSS}
 const ReviewsOverview = (props) => {
   console.log(props);
   const { data } = props;
-
-  let reviewsAverages = ((reviews) => {
-    let reviewsAverages = {
-      appearance: 0,
-      easeOfAssembly: 0,
-      overallRating: 0,
-      productQuality: 0,
-      valueForMoney: 0,
-      worksAsExpected: 0,
-    };
-    let numOfReviews = reviews.length;
-
-    data.reviews.forEach((review) => {
-      for (var rating in reviewsAverages) {
-        reviewsAverages[rating] += review[rating]
-      }
-    })
-    for (var rating in reviewsAverages) {
-      reviewsAverages[rating] /= numOfReviews
-    }
-    return reviewsAverages;
-  })(data.reviews)
-
+  console.log(props.averages);
   let roundedUpStars = [];
-  for (let i = 0; i < reviewsAverages.overallRating; i++) {
+  for (let i = 0; i < props.averages.overallRating; i++) {
     roundedUpStars.push(Star);
   }
 
   return (
-    <Main linkedToReviews={props.linkedToReviews} onClick={props.handleClick}>{roundedUpStars} ({data.reviews.length})</Main>
+    <Main linkedToReviews={props.linkedToReviews} onClick={props.handleClick}>{roundedUpStars} ({props.averages.numOfReviews})</Main>
   );
 }
 

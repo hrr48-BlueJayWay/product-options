@@ -23,7 +23,10 @@ const Reviews = (props) => {
   return (
     <FlexContainer>
       <Title>Reviews</Title>
-      <ReviewsOverview data={data} />
+      <div>
+      <div></div>
+      <ReviewsOverview averages={data.reviewsAverages} />
+      </div>
     </FlexContainer>
   );
 };

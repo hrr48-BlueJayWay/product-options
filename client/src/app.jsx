@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import Helpers from './helpers.js';
 import ProductOverview from './components/ProductOverview.jsx';
 import exampleData from './data/exampleData.js';
 import GlobalStyle from './globalStyle/createGlobalStyle.jsx'
@@ -23,8 +24,11 @@ const Pane = styled.div`
 const App = () => {
 
 const [data, setData] = useState(exampleData)
+data.reviewsAverages = Helpers.calculateAverages(data.reviews);
+
 const [sidebarClicked, setSidebarClicked] = useState(false);
 const [sidebarView, setSidebarView] = useState();
+
 
   return (
     <Module>

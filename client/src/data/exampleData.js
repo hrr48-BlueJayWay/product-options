@@ -4,9 +4,15 @@ const exampleData = {
           salePrice: 300
     },
       colors: [
-          'orange'
+          'orange',
+          'purple',
+          'tangello',
     ],
-      sizes: [],
+      sizes: [
+            'small',
+            'medium',
+            'large',
+      ],
       _id: '5f7397b36d78c4180781a9c3',
       title: 'corrupti',
       description: 'Nostrum fuga quod corrupti velit praesentium rerum earum eligendi nostrum.',

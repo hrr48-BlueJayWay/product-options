@@ -59,6 +59,13 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     box-sizing: border-box;
   };
+
+  button {
+    outline: none;
+    border: none;
+    background:none;
+    cursor: pointer;
+  }
 `
 
 export default GlobalStyle;

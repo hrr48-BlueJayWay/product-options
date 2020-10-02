@@ -28,7 +28,6 @@ const Pricing = styled.div`
 const Title = styled.h1`
   grid-area: main;
   font-weight: 700;
-  margin: 0.5rem 0;
 `;
 
 const Description = styled.div`

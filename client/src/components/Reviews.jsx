@@ -5,11 +5,19 @@ import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
 
 
+
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 20%;
+  margin-bottom: 10%;
   padding-left: 10%;
+`;
+
+const ReviewsFlex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10%;
 `;
 
 const ScoreAverage = styled.div`
@@ -99,9 +107,9 @@ const Reviews = (props) => {
         </ScoreAverage>
       </Averages>
     </FlexContainer>
-    <FlexContainer>
+    <ReviewsFlex>
       {reviews.map((review) => {return <ReviewEntry review={review} />})}
-    </FlexContainer>
+    </ReviewsFlex>
     </div>
   );
 };

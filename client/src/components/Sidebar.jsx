@@ -28,6 +28,7 @@ const Main = styled.div`
   height: 100vh;
   background-color: #fff;
   z-index: 5;
+  overflow: scroll;
 `;
 
 const Sidebar = (props) => {

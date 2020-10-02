@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
     font-size: 1rem;
+    line-height: 1.5;
     box-sizing: border-box;
   };
 `

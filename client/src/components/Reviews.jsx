@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
-import SidebarFlex from './mini-components/SidebarFlex.jsx';
+import SidebarComponents from './mini-components/SidebarFlex.jsx';
 
 const ReviewsFlex = styled.div`
   display: flex;

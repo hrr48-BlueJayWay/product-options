@@ -22,9 +22,10 @@ const TotalBar = styled.div`
   display: flex;
   position: relative;
   margin: 0.25rem 0;
-  height: 25%;
+  height: 0.5rem;
   justify-content: space-evenly;
   background-color: #f5f5f5;
+  min-height: 0.25rem;
 `;
 
 const TheBarTest = styled.div`

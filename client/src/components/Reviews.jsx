@@ -4,8 +4,6 @@ import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
 
-
-
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -74,11 +72,11 @@ const Reviews = (props) => {
       <Title>Reviews</Title>
       <Averages>
         <NumTitle>{reviewsAverages.overallRating}</NumTitle>
-        <ReviewsOverview averages={reviewsAverages} />
+        <ReviewsOverview overallRating={reviewsAverages.overallRating} numOfReviews={reviewsAverages.numOfReviews} />
         <SubHeader>Average customer ratings</SubHeader>
         <ScoreAverage>
           <ScoreName>Overall</ScoreName>
-          <Score><ReviewsOverview averages={reviewsAverages} /></Score>
+          <Score><ReviewsOverview overallRating={reviewsAverages.overallRating} /></Score>
           <ScoreName>Ease of assembly/installation</ScoreName>
           <Score>
             <ReviewBar rating={reviewsAverages.easeOfAssembly} />

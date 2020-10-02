@@ -83,7 +83,7 @@ const ProductOverview = (props) => {
       <CurrentPrice>{dollar}{data.price.salePrice}{cents}</CurrentPrice>
       {isOnSale && <OriginalPrice>${data.price.originalPrice}.99</OriginalPrice>}
     </Pricing>
-    <ReviewsContainer><ReviewsOverview handleClick={handleClick} averages={data.reviewsAverages} linkedToReviews={true} /></ReviewsContainer>
+    <ReviewsContainer><ReviewsOverview handleClick={handleClick} overallRating={data.reviewsAverages.overallRating} numOfReviews={data.reviewsAverages.numOfReviews} linkedToReviews={true} /></ReviewsContainer>
   </GridParent>
   );
 };

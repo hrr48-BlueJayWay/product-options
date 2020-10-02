@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
-import SidebarComponents from './mini-components/SidebarFlex.jsx';
+import { SidebarFlex, Title } from './mini-components/SidebarComponents.jsx';
 
 const ReviewsFlex = styled.div`
   display: flex;
@@ -14,13 +14,6 @@ const ReviewsFlex = styled.div`
 const ScoreAverage = styled.div`
   display: grid;
   grid-template: repeat(6, 1fr) / repeat(2, 1fr);
-`;
-
-const Title = styled.h1`
-  font-weight: 700;
-  margin: 0.5rem 0;
-  flex: 0 0 100%;
-  font-size: 1.5rem;
 `;
 
 const SubHeader = styled.h2`
@@ -60,7 +53,6 @@ const Reviews = (props) => {
   console.log(reviewsAverages);
   return (
     <div>
-
     <SidebarFlex>
       <Title>Reviews</Title>
       <Averages>

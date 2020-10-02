@@ -64,7 +64,7 @@ const ProductOverview = (props) => {
 
   const handleClick = () => {
     props.setSidebarClicked(true);
-    props.setSidebarView('reviews');
+    props.setSidebarToRender('reviews');
   }
 
   const { data } = props;

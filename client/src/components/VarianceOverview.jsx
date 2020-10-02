@@ -41,13 +41,13 @@ const VarianceOverview = (props) => {
 
   const handleClick = () => {
     props.setSidebarClicked(true);
-    props.setSidebarView(props.options.name);
+    props.setSidebarToRender(props.options.name);
   }
 
   return (
     <FlexContainer onClick={handleClick}>
       <div>
-        <Title>Color</Title>
+        <Title>{props.options.name}</Title>
         <SelectedOption>{currentOption}</SelectedOption>
       </div>
       {Arrow}

@@ -33,12 +33,12 @@ const Main = styled.div`
 `;
 
 const Sidebar = (props) => {
-
+  let varianceData = props.sidebarToRender.toLowerCase() + 's';
   const renderView = () => {
-    if (props.sidebarView === 'reviews') {
+    if (props.sidebarToRender === 'reviews') {
       return <Reviews data={props.data} />
     } else {
-      return <VarianceDetails />
+      return <VarianceDetails varianceData={props.data[varianceData]} name={props.sidebarToRender} />
     }
   }
 

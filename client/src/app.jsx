@@ -30,18 +30,18 @@ const [data, setData] = useState(exampleData)
 data.reviewsAverages = Helpers.calculateAverages(data.reviews);
 
 const [sidebarClicked, setSidebarClicked] = useState(false);
-const [sidebarView, setSidebarView] = useState();
+const [sidebarToRender, setSidebarToRender] = useState('');
 
 
   return (
     <div>
       {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
-      <Sidebar data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarView={sidebarView}/>
+      <Sidebar data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarToRender={sidebarToRender}/>
     <Module>
       <GlobalStyle />
-      <ProductOverview data={data} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}/>
-      <VarianceOverview options={{name: 'colors', choices: data.colors}} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
-      <VarianceOverview options={{name: 'sizes', choices: data.sizes}} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
+      <ProductOverview data={data} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}/>
+      <VarianceOverview options={{name: 'Color', choices: data.colors}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />
+      <VarianceOverview options={{name: 'Size', choices: data.sizes}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />
     </Module>
     </div>
 

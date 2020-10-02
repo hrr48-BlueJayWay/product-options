@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-SidebarComponents = {};
-
-SidebarComponents.SidebarFlex = styled.div`
+export const SidebarFlex = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 20%;
@@ -11,11 +9,9 @@ SidebarComponents.SidebarFlex = styled.div`
   padding-left: 10%;
 `;
 
-SidebarComponents.styled.h1`
+export const Title = styled.h1`
   font-weight: 700;
   margin: 0.5rem 0;
   flex: 0 0 100%;
   font-size: 1.5rem;
 `;
-
-export default SidebarComponents;

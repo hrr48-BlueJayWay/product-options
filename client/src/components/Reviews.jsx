@@ -3,14 +3,7 @@ import styled from 'styled-components';
 import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
-
-const FlexContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20%;
-  margin-bottom: 10%;
-  padding-left: 10%;
-`;
+import { SidebarFlex, Title } from './mini-components/SidebarComponents.jsx';
 
 const ReviewsFlex = styled.div`
   display: flex;
@@ -21,13 +14,6 @@ const ReviewsFlex = styled.div`
 const ScoreAverage = styled.div`
   display: grid;
   grid-template: repeat(6, 1fr) / repeat(2, 1fr);
-`;
-
-const Title = styled.h1`
-  font-weight: 700;
-  margin: 0.5rem 0;
-  flex: 0 0 100%;
-  font-size: 1.5rem;
 `;
 
 const SubHeader = styled.h2`
@@ -67,8 +53,7 @@ const Reviews = (props) => {
   console.log(reviewsAverages);
   return (
     <div>
-
-    <FlexContainer>
+    <SidebarFlex>
       <Title>Reviews</Title>
       <Averages>
         <NumTitle>{reviewsAverages.overallRating}</NumTitle>
@@ -104,7 +89,7 @@ const Reviews = (props) => {
           </Score>
         </ScoreAverage>
       </Averages>
-    </FlexContainer>
+    </SidebarFlex>
     <ReviewsFlex>
       {reviews.map((review) => {return <ReviewEntry review={review} />})}
     </ReviewsFlex>

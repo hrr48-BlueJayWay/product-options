@@ -9,6 +9,7 @@ const GridParent = styled.div`
   "main main pricing"
   "description description pricing"
   "reviews reviews pricing";
+  margin-bottom: 1.5rem;
 `;
 
 const NewPrice = styled.div`
@@ -63,7 +64,7 @@ const ProductOverview = (props) => {
 
   const handleClick = () => {
     props.setSidebarClicked(true);
-    props.setSidebarView('reviews');
+    props.setSidebarToRender('reviews');
   }
 
   const { data } = props;

@@ -27,12 +27,12 @@ ${(props) => props.linkedToReviews && hoverCSS}
 const ReviewsOverview = (props) => {
 
   let roundedUpStars = [];
-  for (let i = 0; i < props.averages.overallRating; i++) {
+  for (let i = 0; i < props.overallRating; i++) {
     roundedUpStars.push(Star);
   }
 
   return (
-    <Main linkedToReviews={props.linkedToReviews} onClick={props.handleClick}>{roundedUpStars} ({props.averages.numOfReviews})</Main>
+    <Main linkedToReviews={props.linkedToReviews} onClick={props.handleClick}>{roundedUpStars} {!!props.numOfReviews && `(${props.numOfReviews})`}</Main>
   );
 }
 

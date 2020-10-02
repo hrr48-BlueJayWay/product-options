@@ -4,12 +4,18 @@ import ReviewsOverview from './mini-components/ReviewsOverview.jsx'
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewBar from './mini-components/ReviewBar.jsx';
 
-
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 20%;
+  margin-bottom: 10%;
   padding-left: 10%;
+`;
+
+const ReviewsFlex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10%;
 `;
 
 const ScoreAverage = styled.div`
@@ -66,11 +72,11 @@ const Reviews = (props) => {
       <Title>Reviews</Title>
       <Averages>
         <NumTitle>{reviewsAverages.overallRating}</NumTitle>
-        <ReviewsOverview averages={reviewsAverages} />
+        <ReviewsOverview overallRating={reviewsAverages.overallRating} numOfReviews={reviewsAverages.numOfReviews} />
         <SubHeader>Average customer ratings</SubHeader>
         <ScoreAverage>
           <ScoreName>Overall</ScoreName>
-          <Score><ReviewsOverview averages={reviewsAverages} /></Score>
+          <Score><ReviewsOverview overallRating={reviewsAverages.overallRating} /></Score>
           <ScoreName>Ease of assembly/installation</ScoreName>
           <Score>
             <ReviewBar rating={reviewsAverages.easeOfAssembly} />
@@ -99,9 +105,9 @@ const Reviews = (props) => {
         </ScoreAverage>
       </Averages>
     </FlexContainer>
-    <FlexContainer>
+    <ReviewsFlex>
       {reviews.map((review) => {return <ReviewEntry review={review} />})}
-    </FlexContainer>
+    </ReviewsFlex>
     </div>
   );
 };

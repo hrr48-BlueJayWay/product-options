@@ -37,15 +37,15 @@ const Arrow =
   </Icon>;
 
 const VarianceOverview = (props) => {
-  const [currentOption, setCurrentOption] = useState(props.options[0])
-  console.log(props);
+  const [currentOption, setCurrentOption] = useState(props.options.choices[0])
+
   const handleClick = () => {
     props.setSidebarClicked(true);
-    props.setSidebarView('reviews');
+    props.setSidebarView(props.options.name);
   }
 
   return (
-    <FlexContainer>
+    <FlexContainer onClick={handleClick}>
       <div>
         <Title>Color</Title>
         <SelectedOption>{currentOption}</SelectedOption>

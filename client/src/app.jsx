@@ -40,8 +40,8 @@ const [sidebarView, setSidebarView] = useState();
     <Module>
       <GlobalStyle />
       <ProductOverview data={data} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}/>
-      <VarianceOverview options={data.colors} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
-      <VarianceOverview options={data.sizes} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
+      <VarianceOverview options={{name: 'colors', choices: data.colors}} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
+      <VarianceOverview options={{name: 'sizes', choices: data.sizes}} setSidebarView={setSidebarView} setSidebarClicked={setSidebarClicked}  />
     </Module>
     </div>
 

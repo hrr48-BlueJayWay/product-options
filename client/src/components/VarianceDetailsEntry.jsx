@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const FlexItem = styled.div`
   border: 1px solid #dfdfdf;
   flex: 0 0 100%;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1.5rem;
   margin: 1rem 0;
   border-radius: 0.25rem;
 
@@ -21,8 +21,12 @@ const FlexItem = styled.div`
 
 const VarianceDetailsEntry = (props) => {
 
+  const handleClick = () => {
+    props.setCurrentOption(props.option)
+    props.setSidebarClicked(false)
+  }
   return (
-      <FlexItem>Hello World</FlexItem>
+      <FlexItem onClick={handleClick}>{props.option}</FlexItem>
   );
 };
 

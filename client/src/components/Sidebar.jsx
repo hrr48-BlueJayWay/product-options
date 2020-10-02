@@ -38,11 +38,10 @@ const Sidebar = (props) => {
     if (props.sidebarToRender === 'reviews') {
       return <Reviews data={props.data} />
     } else {
-      return <VarianceDetails varianceData={props.data[varianceData]} name={props.sidebarToRender} />
+      return <VarianceDetails setSidebarClicked={props.setSidebarClicked} setCurrentOption={props.setCurrentOption[varianceData]} varianceData={props.data[varianceData]} name={props.sidebarToRender} />
     }
   }
 
-  const { closeSidebar } = props;
   return (
     <Main clicked={props.sidebarClicked}>
       <Icon onClick={() => {props.setSidebarClicked(false);}} focusable="false" viewBox="0 0 24 24" class="range-revamp-svg-icon range-revamp-btn__icon" aria-hidden="true">

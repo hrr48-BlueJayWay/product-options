@@ -38,7 +38,7 @@ const Sidebar = (props) => {
     if (props.sidebarToRender === 'reviews') {
       return <Reviews data={props.data} />
     } else {
-      return <VarianceDetails setSidebarClicked={props.setSidebarClicked} setCurrentOption={props.setCurrentOption[varianceData]} varianceData={props.data[varianceData]} name={props.sidebarToRender} />
+      return <VarianceDetails setSidebarClicked={props.setSidebarClicked} setCurrentOption={props.setCurrentOption[varianceData]} varianceData={props.data[varianceData]} name={props.sidebarToRender} />;
     }
   }
 

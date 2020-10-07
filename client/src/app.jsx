@@ -8,6 +8,8 @@ import VarianceOverview from './components/VarianceOverview.jsx';
 import exampleData from './data/exampleData.js';
 import GlobalStyle from './globalStyle/createGlobalStyle.jsx'
 import Sidebar from './components/Sidebar.jsx'
+import {BrowserRouter as Router, Route, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Icon = styled.svg`
@@ -82,12 +84,31 @@ const BottomText = styled.div`
   margin: 2rem;
 `;
 
-const string = 'Hello \n World';
-
 const App = () => {
+  const { id } = useParams();
+  console.log(id)
+  const getItem = () => {
+    if (id) {
+      axios.get(`/api/products/${id}`)
+        .then((results) => {
+          setData(results.data);
+        })
+    } else {
+      axios.get(`/api/products/1`)
+      .then((results) => {
+        setData(results.data);
+      })
+    }
+  }
 
+
+  useEffect(() => {
+    getItem();
+  }, [useParams]);
 
   const [data, setData] = useState(exampleData)
+
+
   const [sidebarClicked, setSidebarClicked] = useState(false);
   const [sidebarToRender, setSidebarToRender] = useState('');
   const [currentColorOption, setCurrentColorOption] = useState(data.colors[0]);
@@ -95,15 +116,17 @@ const App = () => {
 
   data.reviewsAverages = Helpers.calculateAverages(data.reviews);
 
+
   return (
     <div>
-      {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
+
+        {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
       <Sidebar setCurrentOption={{colors: setCurrentColorOption, sizes: setCurrentSizeOption}} data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarToRender={sidebarToRender}/>
     <Module>
       <GlobalStyle />
       <ProductOverview data={data} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}/>
-      <VarianceOverview options={{name: 'Color', choices: data.colors, current: currentColorOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />
-      <VarianceOverview options={{name: 'Size', choices: data.sizes, current: currentSizeOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />
+      {!!data.colors.length && <VarianceOverview options={{name: 'Color', choices: data.colors, current: currentColorOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
+      {!!data.sizes.length && <VarianceOverview options={{name: 'Size', choices: data.sizes, current: currentSizeOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
       <ButtonFlex>
         <CartButton>Add to bag</CartButton>
         <LikedButton>{likedIcon}</LikedButton>
@@ -116,9 +139,10 @@ const App = () => {
         You have 365 days to change your mind.
       </BottomText>
     </Module>
-    </div>
+
+      </div>
 
   )
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default App;

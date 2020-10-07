@@ -9,7 +9,7 @@ app.use('/products', express.static('./client/dist'))
 app.use('/', express.static('./client/dist'))
 
 
-app.get('/api/products/:id', (req, res) => {
+app.get('/api/productOptions/products/:id', (req, res) => {
   console.log(req.params);
   let id = req.params.id;
   console.log('this is id', id)
@@ -24,7 +24,7 @@ app.get('/api/products/:id', (req, res) => {
     })
 })
 
-app.patch('/api/products/:id', (req, res) => {
+app.patch('/api/productOptions/products/:id', (req, res) => {
   let id = req.params.id;
 
   db.Item.findOne({ id })
@@ -40,7 +40,7 @@ app.patch('/api/products/:id', (req, res) => {
     })
 })
 
-app.post('/api/products/:id/reviews', (req, res) => {
+app.post('/api/productOptions/products/:id/reviews', (req, res) => {
   const { overallRating, easeOfAssembly, valueForMoney, productQuality, appearance, worksAsExpected, header, body, createdAt, iRecommendThisProduct } = req.body;
   let id = req.params.id;
   db.Item.findOne({ id })
@@ -63,5 +63,8 @@ app.get('/products/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 })
 
+app.get('/test', (req,res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/main.js'));
+})
 
 module.exports = app;

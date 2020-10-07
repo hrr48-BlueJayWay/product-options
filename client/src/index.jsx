@@ -15,4 +15,4 @@ ReactDOM.render(
   <Route path="/products/:id">
     <App />
   </Route>
-</Router>, document.getElementById("app"));
+</Router>, document.getElementById("productOptionsApp"));

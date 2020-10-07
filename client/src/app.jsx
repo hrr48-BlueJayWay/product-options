@@ -89,12 +89,12 @@ const App = () => {
   console.log(id)
   const getItem = () => {
     if (id) {
-      axios.get(`/api/products/${id}`)
+      axios.get(`/api/productOptions/products/${id}`)
         .then((results) => {
           setData(results.data);
         })
     } else {
-      axios.get(`/api/products/1`)
+      axios.get('/api/productOptions/products/1')
       .then((results) => {
         setData(results.data);
       })

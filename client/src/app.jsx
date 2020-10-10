@@ -32,8 +32,6 @@ const ButtonFlex = styled.div`
 const Module = styled.div`
   padding: 0 5rem 0 1.5rem;
   margin-top: 2.5rem;
-  position: absolute;
-  right: 0;
   width: 25rem;
 `;
 

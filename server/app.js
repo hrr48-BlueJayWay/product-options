@@ -63,8 +63,6 @@ app.get('/products/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 })
 
-app.get('/test', (req,res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/main.js'));
-})
+
 
 module.exports = app;

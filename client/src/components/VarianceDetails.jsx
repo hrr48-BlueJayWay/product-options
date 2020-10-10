@@ -17,7 +17,7 @@ const VarianceDetails = (props) => {
     <SidebarFlex>
       <Title>{props.name}</Title>
         <EntryFlex>
-          {props.varianceData && props.varianceData.map((option) => { return <VarianceDetailsEntry setSidebarClicked={props.setSidebarClicked} setCurrentOption={props.setCurrentOption} option={option} /> })}
+          {props.varianceData && props.varianceData.map((option) => { return <VarianceDetailsEntry key={index} setSidebarClicked={props.setSidebarClicked} setCurrentOption={props.setCurrentOption} option={option} /> })}
         </EntryFlex>
     </SidebarFlex>
   );

@@ -91,7 +91,7 @@ const Reviews = (props) => {
       </Averages>
     </SidebarFlex>
     <ReviewsFlex>
-      {reviews.map((review) => {return <ReviewEntry key={index} review={review} />})}
+      {reviews.map((review) => {return <ReviewEntry review={review} />})}
     </ReviewsFlex>
     </div>
   );

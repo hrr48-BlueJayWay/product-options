@@ -19,7 +19,6 @@ const Helpers = {
     for (var rating in reviewsAverages) {
       reviewsAverages[rating] = parseFloat(reviewsAverages[rating] / numOfReviews).toPrecision(2);
     }
-    console.log(reviewsAverages)
     reviewsAverages.numOfReviews = numOfReviews;
     return reviewsAverages;
   }

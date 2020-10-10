@@ -22,6 +22,7 @@ const Icon = styled.svg`
 
 const Main = styled.div`
   position: absolute;
+  top: 0;
   right: 0;
   transform: translateX(${(props) => props.clicked ? "0" : "100%"});
   transition: all ease 300ms;

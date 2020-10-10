@@ -38,6 +38,7 @@ const Module = styled.div`
 const Pane = styled.div`
   position: fixed;
   left: 0;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.15);
   height: 100vh;
   width: 100vw;

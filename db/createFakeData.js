@@ -37,17 +37,18 @@ const createFakeData = () => {
 
   let dataArray = [];
   let id = 0;
+  let samePrice = true;
 
   for (let i = 0; i < 101; i++) {
     let reviews = [];
 
     for (let j = 0; j < Math.floor(Math.random() * 26); j++) {
-      let overallRating = Math.floor(Math.random() * 5 + 1);
       let easeOfAssembly = Math.floor(Math.random() * 5 + 1);
       let valueForMoney = Math.floor(Math.random() * 5 + 1);
       let productQuality = Math.floor(Math.random() * 5 + 1);
       let appearance = Math.floor(Math.random() * 5 + 1);
       let worksAsExpected = Math.floor(Math.random() * 5 + 1);
+      let overallRating = Math.floor((easeOfAssembly + valueForMoney + productQuality + appearance + worksAsExpected) / 5);
       let createdAt = faker.date.past();
       let iRecommendThisProduct = faker.random.boolean();
       let header = faker.lorem.words();
@@ -61,15 +62,18 @@ const createFakeData = () => {
     let description = faker.lorem.sentence();
 
     // Random prices w/ sales
-    let samePrice = true;
+
     let price;
     let currentPrice = faker.commerce.price();
+
     if (samePrice) {
+
        price = {
         originalPrice: currentPrice,
         salePrice: currentPrice
       }
-      } else {
+
+    } else {
         let newPrice = faker.commerce.price();
         let higherPrice;
         let lowerPrice;

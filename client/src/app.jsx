@@ -85,17 +85,22 @@ const BottomText = styled.div`
 
 const App = () => {
   const { id } = useParams();
-  console.log(id)
+
   const getItem = () => {
     if (id) {
       axios.get(`/api/productOptions/products/${id}`)
         .then((results) => {
-          setData(results.data);
+          const { data } = results;
+          setData(data);
+          setCurrentColorOption(data.colors[0])
+          setCurrentSizeOption(data.sizes[0])
         })
     } else {
       axios.get('/api/productOptions/products/1')
       .then((results) => {
         setData(results.data);
+        setCurrentColorOption(data.colors[0])
+        setCurrentSizeOption(data.sizes[0])
       })
     }
   }
@@ -105,43 +110,51 @@ const App = () => {
     getItem();
   }, [useParams]);
 
-  const [data, setData] = useState(exampleData)
+  const [data, setData] = useState()
 
 
   const [sidebarClicked, setSidebarClicked] = useState(false);
   const [sidebarToRender, setSidebarToRender] = useState('');
-  const [currentColorOption, setCurrentColorOption] = useState(data.colors[0]);
-  const [currentSizeOption, setCurrentSizeOption] = useState(data.sizes[0]);
+  const [currentColorOption, setCurrentColorOption] = useState([]);
+  const [currentSizeOption, setCurrentSizeOption] = useState([]);
 
-  data.reviewsAverages = Helpers.calculateAverages(data.reviews);
+  if (data) {
+    data.reviewsAverages = Helpers.calculateAverages(data.reviews);
+  }
 
+  if (data) {
+    return (
+      <div>
 
-  return (
-    <div>
+          {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
+        <Sidebar setCurrentOption={{colors: setCurrentColorOption, sizes: setCurrentSizeOption}} data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarToRender={sidebarToRender}/>
+      <Module>
+        <GlobalStyle />
+        <ProductOverview data={data} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}/>
+        {!!data.colors.length && <VarianceOverview options={{name: 'Color', choices: data.colors, current: currentColorOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
+        {!!data.sizes.length && <VarianceOverview options={{name: 'Size', choices: data.sizes, current: currentSizeOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
+        <ButtonFlex>
+          <CartButton>Add to bag</CartButton>
+          <LikedButton>{likedIcon}</LikedButton>
+        </ButtonFlex>
+        <BottomText>
+          We're sorry, due to COVID-19 delivery times are running longer than usual. We are actively working to improve these issues.
+        </BottomText>
+        <BottomText>In stock at AZ, Tempe <br></br> To check another store or to get notified when it's back in stock click here</BottomText>
+        <BottomText>
+          You have 365 days to change your mind.
+        </BottomText>
+      </Module>
 
-        {sidebarClicked && <Pane onClick={() => setSidebarClicked(false)} />}
-      <Sidebar setCurrentOption={{colors: setCurrentColorOption, sizes: setCurrentSizeOption}} data={data} sidebarClicked={sidebarClicked} setSidebarClicked={setSidebarClicked} sidebarToRender={sidebarToRender}/>
-    <Module>
-      <GlobalStyle />
-      <ProductOverview data={data} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}/>
-      {!!data.colors.length && <VarianceOverview options={{name: 'Color', choices: data.colors, current: currentColorOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
-      {!!data.sizes.length && <VarianceOverview options={{name: 'Size', choices: data.sizes, current: currentSizeOption}} setSidebarToRender={setSidebarToRender} setSidebarClicked={setSidebarClicked}  />}
-      <ButtonFlex>
-        <CartButton>Add to bag</CartButton>
-        <LikedButton>{likedIcon}</LikedButton>
-      </ButtonFlex>
-      <BottomText>
-        We're sorry, due to COVID-19 delivery times are running longer than usual. We are actively working to improve these issues.
-      </BottomText>
-      <BottomText>In stock at AZ, Tempe <br></br> To check another store or to get notified when it's back in stock click here</BottomText>
-      <BottomText>
-        You have 365 days to change your mind.
-      </BottomText>
-    </Module>
+        </div>
 
-      </div>
+    )
 
-  )
+  } else {
+    return (
+      <div></div>
+    )
+  }
 };
 
 export default App;
